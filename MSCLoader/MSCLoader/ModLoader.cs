@@ -545,7 +545,7 @@ namespace MSCLoader
                     }
                     else
                     {
-                        ZipFile zip1 = ZipFile.Read(File.ReadAllBytes(zip));
+                        ZipFile zip1 = ZipFile.Read(File.Open(zip, FileMode.Open));
                         foreach (ZipEntry zz in zip1)
                         {
                             ModConsole.Print($"Copying new file: {zz.FileName}");
