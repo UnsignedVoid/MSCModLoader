@@ -4,6 +4,7 @@ project(MySummerCarModLoader LANGUAGES CSharp)
 
 include(CSharpUtilities)
 include(cmake/NugetRestore.cmake)
+include(cmake/pdb2mdb.cmake)
 
 option(MSC_GAME_PATH "Path to Installed My Summer Car" OFF)
 
@@ -20,6 +21,13 @@ add_subdirectory(MSCLoader)
 add_subdirectory(MSCPatcher)
 
 add_dependencies(MSCLoader NugetRestore_MSCLoader)
+add_dependencies(PDB2MDB_MSCLoader MSCLoader)
 add_dependencies(MSCPatcher NugetRestore_MSCPatcher)
 
 
+install(
+	TARGETS 
+		MSCLoader MSCPatcher MSCLoader
+	DESTINATION
+		${CMAKE_INSTALL_PREFIX}
+)
