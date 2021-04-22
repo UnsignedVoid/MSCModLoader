@@ -277,6 +277,7 @@ namespace MSCLoader
                     modViewLabels.transform.SetParent(modSettingsList.transform, false);
                     GameObject txt = Instantiate(ms.textBox);
                     txt.transform.GetChild(0).GetComponent<Text>().text = setting.Vals[0].ToString();
+                    txt.GetComponent<InputField>().contentType = (InputField.ContentType)setting.Vals[2];
                     txt.GetComponent<InputField>().text = setting.Value.ToString();
                     txt.GetComponent<InputField>().onValueChange.AddListener(delegate
                     {
@@ -411,9 +412,15 @@ namespace MSCLoader
             {
                 selected_mod.isDisabled = ischecked;
                 if (ischecked)
+                {
+                    selected_mod.OnModDisabled();
                     ModConsole.Print(string.Format("Mod <b><color=orange>{0}</color></b> is <color=red><b>Disabled</b></color>", selected_mod.Name));
+                }
                 else
+                {
+                    selected_mod.OnModEnabled();
                     ModConsole.Print(string.Format("Mod <b><color=orange>{0}</color></b> is <color=green><b>Enabled</b></color>", selected_mod.Name));
+                }
                 ModSettings_menu.SaveSettings(selected_mod);
             }
         }
