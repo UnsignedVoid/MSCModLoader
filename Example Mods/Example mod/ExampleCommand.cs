@@ -1,9 +1,7 @@
 ﻿using MSCLoader;
 
-namespace ExampleMod
-{
-    public class ExampleCommand : ConsoleCommand
-	{
+namespace ExampleMod {
+	public class ExampleCommand : ConsoleCommand {
 		// What the player has to type into the console to execute your commnad
 		public override string Name => "example";
 
@@ -11,8 +9,7 @@ namespace ExampleMod
 		public override string Help => "Just type the command";
 
 		// The function that's called when the command is executed
-		public override void Run(string[] args)
-		{
+		public override void Run(string[] args) {
 			ModConsole.Print("This command works!!!");
 		}
 	}

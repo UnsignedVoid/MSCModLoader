@@ -1,8 +1,5 @@
-﻿//Only for documentation, exclude from build
+﻿// Only for documentation, exclude from build
 
-public class Class1
-{
-	public Class1()
-	{
-	}
+public class Class1 {
+	public Class1() {}
 }
