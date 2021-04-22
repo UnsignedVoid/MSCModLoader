@@ -69,6 +69,7 @@ file(TO_NATIVE_PATH "${MSC_GAME_ASSEMBLIES_PATH}/UnityEngine.UI.dll" Assembly_Un
 file(TO_NATIVE_PATH "${MSCLoader_PACKAGES_PATH}/Lib.Harmony.1.2.0.1/lib/net35/0Harmony.dll" 0Harmony_PATH)
 file(TO_NATIVE_PATH	"${MSCLoader_PACKAGES_PATH}/Ionic.Zip.1.9.1.8/lib/Ionic.Zip.dll" Ionic_Zip_PATH)
 file(TO_NATIVE_PATH	"${MSCLoader_PACKAGES_PATH}/NAudio.1.10.0/lib/net35/NAudio.dll" NAudio_PATH)
+file(TO_NATIVE_PATH	"${MSCLoader_PACKAGES_PATH}/ini-parser.2.5.2/lib/net20/INIFileParser.dll" INIFileParser_PATH)
 file(TO_NATIVE_PATH	"${MSCLoader_PACKAGES_PATH}/Newtonsoft.Json.13.0.1/lib/net35/Newtonsoft.Json.dll" Newtonsoft_Json_PATH)
 file(TO_NATIVE_PATH	"${MSCLoader_PACKAGES_PATH}/NVorbis.0.8.6/lib/net35/NVorbis.dll" NVorbis_PATH)
 file(TO_NATIVE_PATH	"${NAudioFlac_BYPRODUCTS}" NAudio_Flac_PATH)
@@ -88,4 +89,5 @@ set_target_properties(MSCLoader
         VS_DOTNET_REFERENCE_Newtonsoft_Json ${Newtonsoft_Json_PATH}
         VS_DOTNET_REFERENCE_NVorbis ${NVorbis_PATH}
         VS_DOTNET_REFERENCE_NAudio_Flac ${NAudio_Flac_PATH}
+        VS_DOTNET_REFERENCE_INIFileParser ${INIFileParser_PATH}
 )
