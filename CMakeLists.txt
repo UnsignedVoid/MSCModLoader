@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.19)
 
 project(MySummerCarModLoader LANGUAGES CSharp)
 
+add_compile_definitions($<$<CONFIG:Debug>:DEBUG,PUBLIC_RELEASE> $<$<CONFIG:Debug>:DevMode>)
+
 include(CSharpUtilities)
 include(cmake/NugetRestore.cmake)
 include(cmake/pdb2mdb.cmake)
