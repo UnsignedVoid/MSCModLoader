@@ -1525,9 +1525,9 @@ namespace MSCLoader {
 				bool isMod = false;
 
 				AssemblyName[] list = asm.GetReferencedAssemblies();
-				if (File.ReadAllText(file).Contains("RegistryKey") ||
-						File.ReadAllText(file).Contains("Steamworks"))
-					throw new FileLoadException();
+				// if (File.ReadAllText(file).Contains("RegistryKey") ||
+				// 		File.ReadAllText(file).Contains("Steamworks"))
+				// 	throw new FileLoadException();
 
 				// Warn about wrong .net target, source of some mod crashes.
 				if (!asm.ImageRuntimeVersion.Equals(
@@ -1543,9 +1543,9 @@ namespace MSCLoader {
 					if (typeof(Mod).IsAssignableFrom(type)) {
 						for (int i = 0; i < list.Length; i++) {
 							if (list[i].Name == "Assembly-CSharp-firstpass") {
-								if (File.ReadAllText(file).Contains("Steamworks") ||
-										File.ReadAllText(file).Contains("GetSteamID"))
-									throw new Exception("Targeting forbidden reference");
+								// if (File.ReadAllText(file).Contains("Steamworks") ||
+								// 		File.ReadAllText(file).Contains("GetSteamID"))
+								// 	throw new Exception("Targeting forbidden reference");
 							}
 							if (list[i].Name == "MSCLoader") {
 								string[] verparse = list[i].Version.ToString().Split('.');
