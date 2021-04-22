@@ -1146,8 +1146,12 @@ namespace MSCLoader
 
         private void LoadCoreAssets()
         {
-            ModConsole.Print("Loading core assets...");
-            AssetBundle ab = LoadAssets.LoadBundle("MSCLoader.CoreAssets.core.unity3d");
+            string managed_folder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string game_folder = System.IO.Directory.GetParent(managed_folder).Parent.ToString();
+            string core_assets_rel_path = System.IO.Path.Combine(System.IO.Path.Combine("Mods","Assets"), "core.unity3d");
+            string core_assets_path = System.IO.Path.Combine(game_folder, core_assets_rel_path);
+            ModConsole.Print("Loading core assets... " + core_assets_path);
+            AssetBundle ab = UnityEngine.AssetBundle.CreateFromMemoryImmediate(File.ReadAllBytes(core_assets_path));
             guiskin = ab.LoadAsset<GUISkin>("MSCLoader.guiskin");
             ModUI.messageBox = ab.LoadAsset<GameObject>("MSCLoader MB.prefab");
             ModUI.messageBoxBtn = ab.LoadAsset<GameObject>("MB_Button.prefab");
